@@ -7,7 +7,10 @@ const songsSlice = createSlice({
     addSong(state, action) {
       state.push(action.payload);
     },
-    removeSong(state, action) {},
+    removeSong(state, action) {
+      const index = state.indexOf(action.payload);
+      state.splice(index, 1);
+    },
   },
 });
 
@@ -16,12 +19,6 @@ const store = configureStore({
     songs: songsSlice.reducer,
   },
 });
-const startingState = store.getState();
-console.log(JSON.stringify(startingState));
 
-store.dispatch({
-  type: "song/addSong",
-  payload: "NewSong!!!",
-});
-const finalState = store.getState();
-console.log(JSON.stringify(finalState));
+export { store };
+export const { addSong, removeSong } = songsSlice.actions;
