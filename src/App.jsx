@@ -1,7 +1,7 @@
 import "./styles.css";
 import MoviePlaylist from "./components/MoviePlaylist";
 import SongPlaylist from "./components/SongPlaylist";
-
+// import { store } from "./store/index.js";
 export default function App() {
   const handleResetClick = () => {
     //
